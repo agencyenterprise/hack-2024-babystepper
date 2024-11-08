@@ -37,51 +37,73 @@ export default function Home() {
   };
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <div className="w-full max-w-2xl">
-          <h1 className="text-2xl font-bold mb-2">BabyStepper</h1>
-          <p className="text-gray-600 mb-6">Generate small, actionable steps to address problems, prevent issues, or test new concepts.</p>
-          
-          <form className="space-y-4" onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="problem" className="block text-sm font-medium mb-2">
-                What would you like to work on?
-              </label>
-              <textarea
-                value={problem}
-                onChange={(e) => setProblem(e.target.value)}
-                id="problem"
-                name="problem"
-                className="w-full p-3 border border-gray-300 rounded-md min-h-[120px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-900 placeholder:text-gray-400"
-                placeholder="Describe your situation or challenge (e.g., 'I want to improve team communication' or 'We need to reduce customer complaints')..."
-                required
-                aria-label="Problem or situation description"
-              />
-            </div>
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors disabled:bg-blue-300"
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl">
+        {/* Header Section */}
+        <div className="text-center sm:text-left mb-12">
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            BabyStepper
+          </h1>
+          <p className="mt-3 text-lg text-slate-600">
+            Generate small, actionable steps to address problems, prevent issues, or test new concepts.
+          </p>
+        </div>
+
+        {/* Main Form Section */}
+        <form onSubmit={handleSubmit} className="space-y-6 bg-white rounded-xl shadow-sm border border-slate-200 p-6 sm:p-8">
+          <div>
+            <label 
+              htmlFor="problem" 
+              className="block text-sm font-medium text-slate-700 mb-2"
             >
-              {isLoading ? 'Generating Baby Step...' : 'Generate Baby Step'}
-            </button>
-          </form>
-          
-          <div className="mt-8 p-4 border rounded-md">
-            <h2 className="text-lg font-semibold mb-2">Your Next Baby Step</h2>
+              What would you like to work on?
+            </label>
+            <textarea
+              value={problem}
+              onChange={(e) => setProblem(e.target.value)}
+              id="problem"
+              name="problem"
+              className="block w-full rounded-lg border-slate-200 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm min-h-[160px] resize-y transition-colors duration-200"
+              placeholder="Describe your situation or challenge (e.g., 'I want to improve team communication' or 'We need to reduce customer complaints')..."
+              required
+              aria-label="Problem or situation description"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="w-full sm:w-auto flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:bg-blue-600"
+          >
             {isLoading ? (
-              <div className="flex items-center justify-center py-4">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
-              </div>
+              <>
+                <span className="inline-block animate-spin mr-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full" />
+                Generating Baby Step...
+              </>
             ) : (
-              <p className="whitespace-pre-wrap text-gray-600">
+              'Generate Baby Step'
+            )}
+          </button>
+        </form>
+
+        {/* Results Section */}
+        <div className="mt-8 bg-white rounded-xl shadow-sm border border-slate-200 p-6 sm:p-8">
+          <h2 className="text-xl font-semibold text-slate-900 mb-4">
+            Your Next Baby Step
+          </h2>
+          {isLoading ? (
+            <div className="flex items-center justify-center py-8">
+              <div className="animate-spin rounded-full h-12 w-12 border-[3px] border-slate-200 border-t-blue-600"></div>
+            </div>
+          ) : (
+            <div className="prose prose-slate max-w-none">
+              <p className="whitespace-pre-wrap text-slate-600 text-lg">
                 {solution || 'Your actionable baby step will appear here...'}
               </p>
-            )}
-          </div>
+            </div>
+          )}
         </div>
-      </main>
+      </div>
     </div>
   );
 }
