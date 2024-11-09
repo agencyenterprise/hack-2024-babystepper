@@ -1,4 +1,13 @@
 import './globals.css'
+import { Inter } from 'next/font/google'
+import type { Metadata } from 'next'
+
+const inter = Inter({ subsets: ['latin'] })
+
+export const metadata: Metadata = {
+  title: 'BabyStepper - Feeling stuck? Take a baby step right now to tackle it!',
+  description: 'Break down your challenges into small, manageable steps with BabyStepper.',
+}
 
 export default function RootLayout({
   children,
@@ -7,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }

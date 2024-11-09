@@ -5,7 +5,7 @@
   /* Colors */
   --color-text-primary: #2D3436;
   --color-text-secondary: #636E72;
-  --color-accent: #0070F3;
+  --color-accent: #FBDEC0;
   --color-border: #E5E5E5;
   --color-background: #FFFFFF;
   --color-hover: #F8F9FA;
@@ -71,7 +71,7 @@
 :root {
   --color-text-primary: #2D3436;
   --color-text-secondary: #636E72;
-  --color-accent: #0070F3;
+  --color-accent: #FBDEC0;
   --color-border: #E5E5E5;
   --color-background: #FFFFFF;
   --color-hover: #F8F9FA;
