@@ -71,7 +71,7 @@ export default function Home() {
           <div className="text-center space-y-8 mb-16">
             <div>
               <img
-                src="https://i.postimg.cc/0yVxcp77/baby-stepper.png"
+                src="https://i.postimg.cc/J723XgyL/baby-stepper-logo.png"
                 alt="BabyStepper Logo"
                 className="w-[120px] h-[120px] mx-auto"
               />
