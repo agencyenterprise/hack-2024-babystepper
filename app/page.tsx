@@ -2,7 +2,10 @@
 import { Inter, Merriweather } from 'next/font/google';
 import { useState, useRef, useEffect } from "react";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ 
+  subsets: ['latin'],
+  weight: ['300', '400', '500']
+});
 const merriweather = Merriweather({ 
   weight: ['400', '700'],
   style: ['italic'],
@@ -74,10 +77,10 @@ export default function Home() {
               />
             </div>
             <div className="space-y-4 flex flex-col items-center">
-              <h1 className={`${merriweather.className} text-[#2D3436] text-center text-[48px] leading-[48px] tracking-[-1.2px]`}>
+              <h1 className={`${merriweather.className} text-[#2D3436] text-center text-[48px] italic font-bold leading-[48px] tracking-[-1.2px]`}>
                 BabyStepper
               </h1>
-              <p className="text-[var(--color-text-secondary)] text-xl leading-relaxed text-center max-w-xl">
+              <p className="text-[var(--color-text-secondary)] text-xl font-light leading-relaxed text-center max-w-xl">
                 Feeling stuck? Take a baby step right now to tackle it!
               </p>
             </div>
@@ -113,18 +116,15 @@ export default function Home() {
 
           {/* Results Section */}
           {solution && (
-            <div 
-              ref={resultRef}
-              className="mt-16 rounded-lg bg-gradient-to-b from-white to-[#FEF6EE]"
-            >
-              <div className="p-8 space-y-6">
-                <h2 className={`${merriweather.className} text-[#2D3436] text-center text-[24px] italic font-normal leading-[32px] tracking-[-0.6px]`}>
+            <div ref={resultRef} className="mt-6 rounded-lg bg-gradient-to-b from-white to-[#FEF6EE]">
+              <div className="p-12 space-y-8">
+                <h2 className={`${merriweather.className} text-[#2D3436] text-center text-[24px] italic font-light leading-[32px] tracking-[-0.6px]`}>
                   Your Next Baby Step
                 </h2>
-                <p className="text-[var(--color-text-primary)] text-lg leading-relaxed whitespace-pre-wrap">
+                <p className="text-[var(--color-text-primary)] text-lg font-light leading-relaxed whitespace-pre-wrap px-4">
                   {solution}
                 </p>
-                <div className="flex justify-center">
+                <div className="flex justify-center pt-4">
                   <button
                     onClick={handleCopy}
                     className="inline-flex items-center px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)] bg-white border border-[var(--color-border)] rounded-lg hover:bg-[var(--color-hover)] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent)]"
@@ -153,7 +153,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="text-center text-sm text-[var(--color-text-secondary)] mt-8 mb-0 py-1">
+      <footer className="text-center text-sm text-[var(--color-text-secondary)] mt-8 mb-2 py-1">
         Made with ❤️ by{' '}
         <a 
           href="https://ae.studio/" 
