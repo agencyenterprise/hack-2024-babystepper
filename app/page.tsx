@@ -1,8 +1,13 @@
 'use client';
-import { Inter } from 'next/font/google';
+import { Inter, Merriweather } from 'next/font/google';
 import { useState } from "react";
 
 const inter = Inter({ subsets: ['latin'] });
+const merriweather = Merriweather({ 
+  weight: '700',
+  style: 'italic',
+  subsets: ['latin'] 
+});
 
 export default function Home() {
   const [problem, setProblem] = useState('');
@@ -52,13 +57,13 @@ export default function Home() {
         <div className="text-center space-y-8 mb-16">
           <div>
             <img
-              src="https://i.postimg.cc/131jpbLT/baby-stepper.png"
+              src="https://i.postimg.cc/0yVxcp77/baby-stepper.png"
               alt="BabyStepper Logo"
-              className="w-20 h-20 mx-auto"
+              className="w-[120px] h-[120px] mx-auto"
             />
           </div>
           <div className="space-y-4 flex flex-col items-center">
-            <h1 className="text-[var(--color-text-primary)] text-5xl font-bold tracking-tight text-center">
+            <h1 className={`${merriweather.className} text-[#2D3436] text-center text-[48px] leading-[48px] tracking-[-1.2px]`}>
               BabyStepper
             </h1>
             <p className="text-[var(--color-text-secondary)] text-xl leading-relaxed text-center max-w-xl">
@@ -81,7 +86,7 @@ export default function Home() {
             <button
               onClick={handleSubmit}
               disabled={isLoading}
-              className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-[var(--color-accent)] rounded-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-accent)] transition-all duration-200 disabled:opacity-50"
+              className="inline-flex items-center px-6 py-3 text-base font-medium text-white rounded-[9999px] bg-gradient-to-t from-[#2D3436] to-[#636E72] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2D3436] transition-all duration-200 disabled:opacity-50"
             >
               {isLoading ? (
                 <div className="flex items-center">
